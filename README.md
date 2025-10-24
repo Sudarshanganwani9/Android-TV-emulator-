@@ -89,4 +89,4 @@ I added Gradle wrapper helper files and a build/install script:
   4. Run `./gradlew assembleDebug` (Unix) or `gradlew.bat assembleDebug` (Windows).
   5. Or run `../scripts/build_and_install.sh` to both build and push to emulator (ensure ANDROID_SDK_ROOT and adb are available in PATH).
 
-If you want, upload real screenshots and I will replace placeholders and re-bundle the ZIP for you.
+
