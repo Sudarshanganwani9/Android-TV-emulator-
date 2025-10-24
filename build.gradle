@@ -1,6 +1,22 @@
-// Top-level build file (placeholder)
-buildscript {
-    repositories { google(); mavenCentral() }
-    dependencies { classpath "com.android.tools.build:gradle:7.0.4" }
+plugins {
+    id 'com.android.application'
+    id 'kotlin-android' apply false
 }
-allprojects { repositories { google(); mavenCentral() } }
+
+android {
+    compileSdk 30
+    defaultConfig {
+        applicationId "com.example.androidtvsample"
+        minSdk 21
+        targetSdk 30
+        versionCode 1
+        versionName "1.0"
+    }
+    buildTypes {
+        release { minifyEnabled false }
+    }
+}
+
+dependencies {
+    implementation 'androidx.appcompat:appcompat:1.2.0'
+}
