@@ -1,0 +1,16 @@
+Certificate pinning:
+- If the app performs certificate pinning, regular mitmproxy will not show decrypted HTTPS bodies.
+- Approaches to handle pinning:
+  1. Use a debug build of the app without pinning (preferred if you control the app).
+  2. Use Frida and frida-server to hook SSL functions and bypass pinning (advanced).
+  3. Use patched frameworks or Xposed modules on rooted emulator images.
+
+Troubleshooting:
+- If you see encrypted TLS frames in mitmproxy, verify:
+  - The emulator uses the host proxy (adb settings).
+  - The mitmproxy root CA is installed as a trusted CA on the device.
+  - The app does not use certificate pinning.
+
+Emulator network:
+- Android emulator uses host loopback at 10.0.2.2 (from emulator to host). However, ADB-based proxy settings may require host LAN IP (e.g., 192.168.x.x).
+- If you cannot reach mitmproxy from emulator, try using `10.0.2.2` as proxy host for emulator-local host mapping.

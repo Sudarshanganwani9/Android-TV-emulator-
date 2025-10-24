@@ -1,0 +1,19 @@
+# Example ADB session (sample)
+$ adb devices
+List of devices attached
+emulator-5554	device
+
+$ adb shell getprop sys.boot_completed
+1
+
+$ adb shell settings put global http_proxy 192.168.1.10:8080
+$ adb shell settings get global http_proxy
+192.168.1.10:8080
+
+# Push mitm cert
+$ adb push /tmp/mitmproxy-ca.crt /sdcard/mitmproxy-ca.crt
+/sdcard/mitmproxy-ca.crt: 1 file pushed. 0.4 MB/s (1200 bytes in 0.003s)
+
+# Trigger install UI (may vary on Android TV)
+$ adb shell am start -a android.credentials.INSTALL -n com.android.certinstaller/.CertInstallerActivity
+Starting: Intent { act=android.credentials.INSTALL cmp=com.android.certinstaller/.CertInstallerActivity }
